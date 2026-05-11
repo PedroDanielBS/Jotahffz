@@ -9,6 +9,21 @@
    // }
 ///})
 
+const mobileToggle = document.getElementById('mobile-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const body = document.body;
+
+mobileToggle.addEventListener('click', () => {
+    mobileToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    
+    // Trava o scroll do site ao abrir o menu
+    if (mobileMenu.classList.contains('active')) {
+        body.style.overflow = 'hidden';
+    } else {
+        body.style.overflow = 'auto';
+    }
+});
 
 
 
