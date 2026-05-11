@@ -12,6 +12,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -172,6 +173,12 @@ body {
 
 /* Esconder menu desktop no mobile */
 @media (max-width: 992px) {
+
+    
+    .character-wrapper {
+        height: 200px;
+    }
+
     .nav-links, .nav-actions {
         display: none;
     }
@@ -391,7 +398,6 @@ body {
     justify-content: space-between; /* Centraliza para expandir para os lados */
     align-items: center;
     height: 100%;
-    min-height: 600px; /* Garante uma altura mínima para o container */
 }
 
 #main-char {
@@ -994,71 +1000,223 @@ body {
 }
 
 /* --- LADO DAS GARANTIAS (GRID DE PRINTS) --- */
-.guarantee-showcase {
-    background: rgba(0, 0, 0, 0.3); /* Fundo contrastante para os prints */
+/* --- CONTAINER DA VITRINE DE PROVAS MODERNA --- */
+.guarantee-showcase-modern {
     padding: 60px;
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.guarantee-header {
-    margin-bottom: 30px;
-}
-
-.guarantee-header h4 {
-    font-family: 'Kanit', sans-serif;
-    letter-spacing: 1px;
-}
-
-.guarantee-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.proof-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
     position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    height: 180px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 500px; /* Garante espaço para a animação */
 }
 
-.proof-card img {
+/* --- ESTILO DA PILHA (STACK) --- */
+.proof-stack {
+    position: relative;
+    width: 280px;
+    height: 380px;
+    margin-top: 40px;
+}
+
+/* --- ESTILO DOS CARDS INDIVIDUAIS --- */
+.proof-card-fancy {
+    position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
-    transition: 0.5s;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Transição suave de mola */
+    cursor: pointer;
+    background: #1a1a1a;
 }
 
-.proof-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.proof-card-fancy img {
     width: 100%;
-    padding: 10px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    font-size: 0.7rem;
-    color: #fff;
-    opacity: 0;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
     transition: 0.3s;
 }
 
-.proof-card:hover img {
-    transform: scale(1.1);
+/* --- TAG DE LEGENDA NOS CARDS --- */
+.proof-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #bb0a0a;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    transform: translateY(50px); /* Escondida inicialmente */
+    transition: 0.4s;
 }
 
-.proof-card:hover .proof-overlay {
+/* --- POSICIONAMENTO INICIAL DA PILHA (Efeito de profundidade) --- */
+.item-1 { transform: rotate(-5deg) translateY(0); z-index: 3; }
+.item-2 { transform: rotate(0deg) translateY(10px) scale(0.95); z-index: 2; opacity: 0.7; }
+.item-3 { transform: rotate(5deg) translateY(20px) scale(0.90); z-index: 1; opacity: 0.5; }
+
+/* --- EFEITO AO PASSAR O MOUSE NO CONTAINER (O Segredo!) --- */
+.proof-stack:hover .item-1 {
+    transform: rotate(-15deg) translateX(-120px) translateY(-20px);
     opacity: 1;
 }
 
-/* --- RESPONSIVIDADE --- */
+.proof-stack:hover .item-2 {
+    transform: rotate(0deg) translateY(-40px) scale(1.05);
+    opacity: 1;
+    z-index: 4; /* Traz o card do meio para frente no hover */
+}
+
+.proof-stack:hover .item-3 {
+    transform: rotate(15deg) translateX(120px) translateY(-20px);
+    opacity: 1;
+}
+
+/* Revela a tag e clareia a imagem no hover */
+.proof-stack:hover .proof-tag {
+    transform: translateY(0);
+}
+.proof-stack:hover img {
+    opacity: 1;
+}
+
+/* --- ÍCONE DE INSTRUÇÃO --- */
+.proof-instruction {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    gap: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -10px); }
+}
+
+.proof-card-fancy {
+    /* Evita que o usuário selecione a imagem sem querer ao tocar rápido */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.proof-card-fancy {
+    /* Evita que o usuário selecione a imagem sem querer ao tocar rápido */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* --- SOLUÇÃO DEFINITIVA PARA MOBILE (SEM SAIR DA TELA) --- */
+@media (max-width: 768px) {
+
+    .hide-mobile { 
+        display: none; 
+    }
+    .show-mobile { 
+        display: block; 
+        font-size: 0.8rem;
+        color: var(--primary-red); /* Cor de destaque para o aviso de toque */
+        font-weight: 600;
+    }
+
+    /* Muda o ícone da instrução para algo mais mobile */
+    .proof-instruction i {
+        content: "\f25a"; /* Código FontAwesome para 'hand-pointer' */
+    }
+
+    .guarantee-showcase-modern {
+        padding: 40px 10px;
+        overflow: hidden; 
+        min-height: 400px;
+    }
+
+    /* 2. Reduzimos um pouco o tamanho base da pilha */
+    .proof-stack {
+        width: 160px; /* Largura menor para sobrar espaço nas laterais */
+        height: 240px;
+        margin: 0 auto;
+    }
+
+    /* 3. Posição inicial dos cards (Pilha fechada) */
+    .item-1 { transform: rotate(-5deg); }
+    .item-2 { transform: rotate(0deg); }
+    .item-3 { transform: rotate(5deg); }
+
+    /* 4. O EFEITO DE ABRIR PARA OS LADOS (Calculado para telas estreitas) */
+    .proof-stack:hover .item-1 {
+        /* Move só 70px para a esquerda e inclina mais */
+        transform: rotate(-15deg) translateX(-75px) translateY(-10px);
+        opacity: 1;
+    }
+
+    .proof-stack:hover .item-2 {
+        /* O do meio apenas sobe levemente e ganha destaque */
+        transform: rotate(0deg) translateY(-30px) scale(1.1);
+        opacity: 1;
+        z-index: 10;
+    }
+
+    .proof-stack:hover .item-3 {
+        /* Move só 70px para a direita e inclina mais */
+        transform: rotate(15deg) translateX(75px) translateY(-10px);
+        opacity: 1;
+    }
+
+    /* 5. Ajuste das Tags para não sobrepor o texto */
+    .proof-tag {
+        font-size: 0.55rem;
+        padding: 3px 8px;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%) translateY(40px);
+        white-space: nowrap; /* Impede o texto de quebrar linha */
+    }
+
+    .proof-stack:hover .proof-tag {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
 @media (max-width: 992px) {
     .panel-sell-glass {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Garante que as colunas virem uma só */
+        display: flex;
+        flex-direction: column;
     }
-    .guarantee-showcase {
-        border-left: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    .guarantee-showcase-modern {
+        width: 100%;
+        padding: 20px 0 100px 0; /* Espaço embaixo para o leque subir */
+        overflow: hidden; /* Proteção extra */
+    }
+}
+
+/* Ajuste para telas MUITO pequenas (iPhone SE, etc) */
+@media (max-width: 380px) {
+    .proof-stack {
+        width: 180px;
+        height: 260px;
+    }
+
+    .proof-stack:hover .item-1 {
+        transform: rotate(-10deg) translateX(-50px) translateY(-10px);
+    }
+    .proof-stack:hover .item-3 {
+        transform: rotate(10deg) translateX(50px) translateY(-10px);
     }
 }
 

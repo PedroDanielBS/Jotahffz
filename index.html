@@ -63,7 +63,7 @@
 <div class="grid-background"></div>
 
 <!-- Seção Hero -->
-<section class="hero">
+<section class="hero" id="home">
     <div class="container hero-layout">
         
         <div class="hero-info">
@@ -257,10 +257,10 @@
 
             <!-- Card 03: Suporte -->
             <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
                 <div class="feature-info">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
                     <h3>Suporte VIP</h3>
                     <p>Estamos online 24/7 para tirar dúvidas ou resolver problemas técnicos durante o seu aluguel.</p>
                 </div>
@@ -307,32 +307,44 @@
             </div>
 
             <!-- Lado Direito: Showcase de Garantias -->
-            <div class="guarantee-showcase">
-                <div class="guarantee-header">
-                    <h4>PROVAS DE SEGURANÇA</h4>
-                    <p>Prints reais de negociações finalizadas</p>
-                </div>
-                
-                <div class="guarantee-grid">
-                    <!-- Espaço para seus Prints -->
-                    <div class="proof-card">
-                        <img src="img/garantia1.jpg" alt="Prova de Pagamento 1">
-                        <div class="proof-overlay"><span>Pagamento via PIX</span></div>
-                    </div>
-                    <div class="proof-card">
-                        <img src="img/garantia2.jpg" alt="Prova de Entrega 2">
-                        <div class="proof-overlay"><span>Entrega Confirmada</span></div>
-                    </div>
-                    <div class="proof-card">
-                        <img src="img/garantia3.jpg" alt="Feedback Discord 3">
-                        <div class="proof-overlay"><span>Feedback Cliente</span></div>
-                    </div>
-                    <div class="proof-card">
-                        <img src="img/garantia4.jpg" alt="Intermediação 4">
-                        <div class="proof-overlay"><span>Intermédio Concluído</span></div>
-                    </div>
-                </div>
-            </div>
+            <!-- SEÇÃO DE PROVAS (ADAPTADA PARA MOBILE) -->
+<div class="guarantee-showcase-modern">
+    <div class="guarantee-header">
+        <h4>PROVAS DE SEGURANÇA</h4>
+        <!-- Texto adaptado: No mobile o usuário entende que deve tocar -->
+        <p class="hide-mobile">Passe o mouse para expandir</p>
+        <p class="show-mobile">Toque para expandir os comprovantes</p>
+    </div>
+    
+    <!-- O atributo onclick="" vazio força o iOS a simular o :hover ao tocar -->
+    <div class="proof-stack" onclick="void(0)">
+        
+        <!-- Print 01 -->
+        <div class="proof-card-fancy item-1">
+            <img src="img/IMG_1760.png" alt="Garantia 1">
+            <div class="proof-tag">PIX RECEBIDO</div>
+        </div>
+
+        <!-- Print 02 -->
+        <div class="proof-card-fancy item-2">
+            <img src="img/IMG_1756.png" alt="Garantia 2">
+            <div class="proof-tag">CONTA ENTREGUE</div>
+        </div>
+
+        <!-- Print 03 -->
+        <div class="proof-card-fancy item-3">
+            <img src="img/IMG_2098.png" alt="Garantia 3">
+            <div class="proof-tag">FEEDBACK VIP</div>
+        </div>
+
+        <!-- Instrução Visual Dinâmica -->
+        <div class="proof-instruction">
+            <!-- Ícone muda para mãozinha de toque no mobile via CSS se desejar -->
+            <i class="fas fa-hand-pointer"></i>
+            <span>VER GARANTIAS</span>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </section>
