@@ -1,0 +1,332 @@
+/* --- RESET E VARIÁVEIS EXCLUSIVAS DO ADMIN --- */
+.admin-body, .admin-body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.admin-body {
+    background-color: #0b0b0d;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- SIDEBAR LATERAL --- */
+.admin-sidebar {
+    width: 260px;
+    background: #070708;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+}
+
+.admin-logo {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+}
+
+.admin-logo .red-dot {
+    color: #ff1a1a;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.sidebar-menu a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 14px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.sidebar-menu a:hover, 
+.sidebar-menu a.active {
+    color: #fff;
+    background: rgba(187, 10, 10, 0.1);
+    border: 1px solid rgba(187, 10, 10, 0.2);
+}
+
+.sidebar-menu a.active {
+    background: #bb0a0a;
+    border-color: #bb0a0a;
+    box-shadow: 0 0 15px rgba(187, 10, 10, 0.3);
+}
+
+.sidebar-footer {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+}
+
+.sidebar-footer strong {
+    color: #ff1a1a;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.admin-main-content {
+    flex-grow: 1;
+    padding: 50px;
+    background: radial-gradient(circle at top right, rgba(187, 10, 10, 0.05) 0%, transparent 50%);
+}
+
+.content-header {
+    margin-bottom: 40px;
+}
+
+.content-header h2 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.content-header p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+}
+
+/* --- FORMULÁRIO GLASSMORPHIC --- */
+.form-container-glass {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px;
+}
+
+.form-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #ff1a1a;
+    box-shadow: 0 0 10px rgba(255, 26, 26, 0.2);
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none; /* Remove seta padrão do navegador */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Botão de Envio */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-admin-submit {
+    background: #ff1a1a;
+    color: #fff;
+    border: none;
+    padding: 16px 35px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(255, 26, 26, 0.2);
+}
+
+.btn-admin-submit:hover {
+    background: #d90808;
+    box-shadow: 0 10px 25px rgba(255, 26, 26, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- RESPONSIVIDADE DO ADMIN --- */
+@media (max-width: 992px) {
+    .admin-wrapper {
+        flex-direction: column;
+    }
+    .admin-sidebar {
+        width: 100%;
+        padding: 20px;
+    }
+    .admin-logo {
+        margin-bottom: 20px;
+    }
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .admin-main-content {
+        padding: 25px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+/* ==========================================================================
+   MODAL DE CONFIRMAÇÃO PERSONALIZADO (STYLE)
+   ========================================================================== */
+.confirm-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.confirm-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.confirm-modal-card {
+    background: #121216;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 35px 30px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 26, 26, 0.05);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.confirm-modal-overlay.active .confirm-modal-card {
+    transform: scale(1);
+}
+
+.confirm-modal-icon {
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 26, 26, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.confirm-modal-icon i {
+    color: #ff1a1a;
+    font-size: 2.2rem;
+}
+
+.confirm-modal-card h3 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.confirm-modal-card p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.confirm-modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-confirm {
+    flex: 1;
+    padding: 13px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.btn-delete {
+    background: #ff1a1a;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 26, 26, 0.2);
+}
+
+.btn-delete:hover {
+    background: #d90808;
+    box-shadow: 0 6px 20px rgba(255, 26, 26, 0.4);
+}

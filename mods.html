@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jotah Store | Vitrine de Mods & Conceitos FF</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style/mods-style.css"> <!-- CSS específico desta página -->
+    <link rel="stylesheet" href="style/style-main.css"> <!-- Seu CSS principal -->
+
+</head>
+<body class="dark-theme">
+    <div class="grid-background"></div>
+
+    <!-- Header / Navbar (Mantendo o padrão do seu site) -->
+    <header class="main-header-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="mods-logo">JOTAH<span class="red-dot" onclick="abrirLoginAdmin()">.</span>STORE</a>
+            <!-- <nav class="nav-menu">
+                <a href="index.html">Início</a>
+                <a href="index.html#catalogo">Contas</a>
+                <a href="#vitrine-mods" class="active">Texturas & Concepts</a>
+                <a href="index.html#vender">Intermédio</a>
+            </nav> -->
+            <a href="https://discord.gg/link" class="btn-discord-nav"><i class="fab fa-discord"></i> DISCORD</a>
+        </div>
+    </header>
+
+    <!-- Hero Section da Aba de Mods -->
+    <section class="mods-hero">
+        <div class="container">
+            <div class="hero-content-center">
+                <span class="badge-accent"><i class="fas fa-crosshairs"></i> FREE FIRE CREATIVE</span>
+                <h1>Modificações Visuais & <span class="gradient-text">Texturas Raras</span></h1>
+                <p>Explore os conceitos de skins, texturas otimizadas para emulador/mobile e pacotes visuais criados pelos melhores designers da comunidade brasileira.</p>
+            </div>
+        </div>
+        <!-- Efeito de Linhas de Grade de Fundo (Gamer) -->
+        <div class="grid-overlay"></div>
+    </section>
+
+    <!-- Seção Principal da Vitrine -->
+    <section id="vitrine-mods" class="mods-showcase-section">
+        <div class="container">
+            
+            <!-- Filtros Interativos (Demonstra habilidades de Front-end no portfólio) -->
+            <div class="filter-bar">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Armas Evolutivas</button>
+                <button class="filter-btn">Roupas / Passes</button>
+                <button class="filter-btn">Otimização (Anti-Lag)</button>
+            </div>
+
+            <!-- Grid de Cards Interativos -->
+            <div class="mods-grid">
+                <!-- Grid de Cards Dinâmicos -->
+<div class="mods-grid" id="produtos-dinamicos">
+    <!-- O JavaScript vai injetar os cards aqui dentro -->
+</div>
+                <!-- Card 01 - Calça Angelical Custom -->
+
+            </div>
+        </div>
+    </section>
+<!-- MODAL DE LOGIN ADMINISTRATIVO OCULTO -->
+<div id="admin-login-modal" class="admin-modal-overlay">
+    <div class="admin-modal-card">
+        <button class="close-modal-btn" onclick="fecharLoginAdmin()">&times;</button>
+        <div class="modal-header">
+            <h3><i class="fas fa-lock"></i> PAINEL RESTRETO</h3>
+            <p>Insira a chave de acesso para gerenciar a loja</p>
+        </div>
+        <form id="admin-login-form">
+            <div class="modal-input-group">
+                <label for="admin-password">CHAVE MESTRA</label>
+                <input type="password" id="admin-password" placeholder="••••••••" required>
+                <span id="login-error-msg" class="login-error">Chave incorreta! Tente novamente.</span>
+            </div>
+            <button type="submit" class="btn-modal-login">ACESSAR DASHBOARD</button>
+        </form>
+    </div>
+</div>
+
+<!-- BOTÃO FLUTUANTE DE LOGIN -->
+<button class="btn-flutuante-admin" onclick="abrirLoginAdmin()" title="Acessar Painel">
+    <i class="fas fa-user-shield"></i>
+    <span>Admin</span>
+</button>
+
+<!-- MODAL DE LOGIN ADMINISTRATIVO -->
+<div id="admin-login-modal" class="admin-modal-overlay">
+    <div class="admin-modal-card">
+        <button class="close-modal-btn" onclick="fecharLoginAdmin()">&times;</button>
+        <div class="modal-header">
+            <h3><i class="fas fa-lock"></i> PAINEL RESTRETO</h3>
+            <p>Insira a chave de acesso para gerenciar a loja</p>
+        </div>
+        <form id="admin-login-form">
+            <div class="modal-input-group">
+                <label for="admin-password">CHAVE MESTRA</label>
+                <input type="password" id="admin-password" placeholder="••••••••" required>
+                <span id="login-error-msg" class="login-error">Chave incorreta! Tente novamente.</span>
+            </div>
+            <button type="submit" class="btn-modal-login">ACESSAR DASHBOARD</button>
+        </form>
+    </div>
+</div>
+</body>
+
+<script src="script/card-estructure.js"></script>
+<script src="script/admin.js"></script>
+</html>

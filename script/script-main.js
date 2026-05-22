@@ -9,6 +9,9 @@
    // }
 ///})
 
+
+
+
 const mobileToggle = document.getElementById('mobile-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 const body = document.body;
@@ -74,3 +77,4 @@ document.querySelectorAll('.faq-question').forEach(button => {
         }
     });
 });
+
